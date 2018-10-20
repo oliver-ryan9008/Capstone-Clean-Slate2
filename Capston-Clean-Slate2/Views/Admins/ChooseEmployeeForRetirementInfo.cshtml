@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Capston_Clean_Slate2.Models.Employee>
+
+@{
+    ViewBag.Title = "ChooseEmployeeForRetirementInfo";
+}
+
+<h2>CreateRetirementAccount</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WillEmployeeContributeRetirement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerContributedRetirement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeContributedRetirement)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        @Html.HiddenFor(modelItem => item.Id)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WillEmployeeContributeRetirement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerContributedRetirement)% Match
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeContributedRetirement)%
+        </td>
+        <td>
+            @Html.ActionLink("Setup Account", "CreateRetirementAccount", new { id = item.Id })
+        </td>
+    </tr>
+    }
+</table>

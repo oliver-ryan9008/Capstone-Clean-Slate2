@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "ASP.NET MVC5 - Full Calendar JQuery Plugin";
+}
+@*@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")*@
+@*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Script-calendar")*@
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <!-- qTip -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+    <!-- Full Calendar -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.print.css" media="print" />
+<head>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    <!-- Include moment-->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+
+    <!-- qTip -->
+    <!-- Full Calendar -->
+    @*<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.js"></script>*@
+    <script>
+        //alert(jQuery);
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                //dayClick: function() {
+                //    alert('a day has been clicked!');
+                //},
+                header:
+                    {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                buttonText: {
+                    today: 'today',
+                    month: 'month',
+                    week: 'week',
+                    day: 'day'
+                },
+                //dayClick: function() {
+                //    var start = document.getElementById("Start").val;
+                //},
+
+                events: function (start, end, timezone, callback) {
+                    $.ajax({
+                        url: '/Calendars/GetCalendarData',
+                        type: "GET",
+                        dataType: "JSON",
+
+                        success: function (result) {
+                            debugger;
+                            var events = [];
+
+                            $.each(result, function (i, data) {
+                                events.push(
+                                    {
+                                        title: data.Title,
+                                        description: data.Desc,
+                                        start: moment(data.Start_Date).format('YYYY-MM-DD'),
+                                        end: moment(data.End_Date).format('YYYY-MM-DD'),
+                                        backgroundColor: "#9501fc",
+                                        borderColor: "#fc0101"
+                                    });
+                            });
+
+                            callback(events);
+                        }
+                    });
+                },
+
+                eventRender: function (event, element) {
+                    element.qtip(
+                        {
+                            content: event.description
+                        });
+                },
+
+                editable: false
+            });
+        });
+    </script>
+</head>
+@*<div class="row">
+    <div class="panel-heading">
+        <div class="col-md-8  custom-heading3">
+            <h3>
+                <i class="fa fa-calendar"></i>
+                <span>ASP.NET MVC5 - Full Calendar JQuery Plugin</span>
+            </h3>
+        </div>
+    </div>
+</div>*@
+
+@*<div>
+    <div id="calendar"></div>
+</div>*@
+
+@*<div>
+    <label for="Start">Start</label>
+    <input type="date" id="Start"
+           value="2018-01-01"
+           min="2018-01-01" max="2018-12-31" />
+</div>*@
+
+<div class="row">
+    <section class="col-md-12 col-md-push-0">
+        @Html.Partial("CalendarPartial")
+    </section>
+</div>
+
+@*<script>
+    alert(jQuery);
+    jQuery(document).ready(function () {
+        jQuery('#calendar').fullCalendar({
+            header:
+                {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+            buttonText: {
+                today: 'today',
+                month: 'month',
+                week: 'week',
+                day: 'day'
+            },
+
+            events: function (start, end, timezone, callback) {
+                $.ajax({
+                    url: '/Home/GetCalendarData',
+                    type: "GET",
+                    dataType: "JSON",
+
+                    success: function (result) {
+                        var events = [];
+
+                        $.each(result, function (i, data) {
+                            events.push(
+                                {
+                                    title: data.Title,
+                                    description: data.Desc,
+                                    start: moment(data.Start_Date).format('YYYY-MM-DD'),
+                                    end: moment(data.End_Date).format('YYYY-MM-DD'),
+                                    backgroundColor: "#9501fc",
+                                    borderColor: "#fc0101"
+                                });
+                        });
+
+                        callback(events);
+                    }
+                });
+            },
+
+            eventRender: function (event, element) {
+                element.qtip(
+                    {
+                        content: event.description
+                    });
+            },
+
+            editable: false
+        });
+    });
+</script>*@
+
+@*<!-- Include moment-->
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+<!-- qTip -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+
+<!-- Full Calendar -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.js"></script>*@

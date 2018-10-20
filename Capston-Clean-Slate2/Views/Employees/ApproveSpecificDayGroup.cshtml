@@ -1,0 +1,57 @@
+﻿@using Capston_Clean_Slate2.Models
+@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "Approval";
+}
+@*@Html.HiddenFor(Model => Model.Id)
+@Html.HiddenFor(Model => Model.ApprovalStatus)*@
+
+<h2>Update Day Off Request</h2>
+
+<div class="form-horizontal">
+
+    <div>
+        Name of Employee: @Model.FirstName&nbsp;@Model.LastName
+    </div>
+    <div>
+        Dates Requested: @Model.RequestDatesToString
+    </div>
+    <div>
+        Current Vacation Balance: @Model.VacationDayBalance
+    </div>
+    <div>
+        Current Personal Day Balance: @Model.PersonalDayBalance
+    </div>
+    <br /><br /><br /><br />
+                   <div>
+                       Would you like to approve this time off request?<br /><br />
+                       @using (Html.BeginForm("ApproveDaysOffConfirm", "Employees"))
+                       {
+                           <fieldset>
+                               <div>
+                                   <div class="btn-group">
+                                       @Html.HiddenFor(model => model.Id)
+                                       <div>
+
+                                           <div class="custom-control custom-radio">
+                                               <input type="radio" id="ApprovalStatus1" name="ApprovalStatus" class="custom-control-input" value="True" checked="">
+                                               <label class="custom-control-label" for="ApprovalStatus1">Approve</label>
+                                           </div>
+                                           <div class="custom-control custom-radio">
+                                               <input type="radio" id="ApprovalStatus2" name="ApprovalStatus" class="custom-control-input" value="False" checked="">
+                                               <label class="custom-control-label" for="ApprovalStatus2">Deny</label>
+                                           </div>
+                                           <br />
+                                           <div>
+                                               <input type="submit" value="Submit" class="btn btn-outline-info">
+                                           </div>
+                                       </div>
+                                   <br><br>
+                                   </div>
+                               </div>
+                           </fieldset>
+
+                               }
+                       </div>
+</div>

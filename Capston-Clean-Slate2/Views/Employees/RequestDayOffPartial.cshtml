@@ -1,0 +1,73 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card text-white bg-info mb-3" style="width: 100%; height:inherit; border-radius: 20px; border-color: #f8f9fa; white-space: nowrap;">
+        <div class="card-header navbar navbar-collapse bg-primary" style="border-radius: 20px 20px 0px 0px; border-bottom-color: #f8f9fa; border-bottom-width:thin; padding-right: 5px;">
+            <div class="row" style="white-space: nowrap">
+                <div class="text-white" style="font-size: 1.2em; font-weight:700; padding-left: 15px; padding-right: 15px; border-right: solid; border-right-color: whitesmoke; border-right-width: thin; padding-top: 14px; padding-bottom: 10px;">
+                    Request Days Off
+                </div>
+            </div>
+        </div>
+
+
+        @using (Html.BeginForm())
+        {
+            string vacDays = "N/A";
+            string perDays = "N/A";
+            DateTime todayVal = DateTime.Now.Date;
+            DateTime tomorrowVal = todayVal.AddDays(1);
+            string tomorrowString = tomorrowVal.ToString("yyyy-MM-dd");
+            string todayString = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            if (Model != null)
+            {
+                if (Model.HasBeenAssignedVacationPersonalDays)
+                {
+                    vacDays = Model.VacationDayBalance.ToString();
+                    perDays = Model.PersonalDayBalance.ToString();
+                }
+            }
+
+
+
+            <div class="card-body" style="justify-content: center;">
+                <div class="row" style="padding-top: 8%; padding-bottom: 9.5%">
+                    <div class="col-6" style="justify-content:center;">
+                        Enter Start of Time Off
+                        <div>
+                            <input type="date" name="start"
+                                   value=@todayString
+                                   min=@todayString max="12-31-2019" />
+                        </div>
+                        Enter End of Time Off
+                        <div>
+                            <input type="date" name="end"
+                                   value=@tomorrowString
+                                   min=@tomorrowString max="12-31-2019" />
+                        </div>
+                        <p style="margin-top:1em;">Request type:</p>
+                        <div>
+                            <input type="radio" name="request" value="vacation"> Vacation Day <br>
+                            <input type="radio" name="request" value="personal"> Personal Day <br>
+                        </div>
+                        <br />
+                        <div>
+                            <input type="submit" value="Submit for Review" class="btn btn-success" />
+                        </div>
+                    </div>
+                    <div class="col-6" style="justify-content:center; color: black !important;">
+                        <div style="border: solid; border-color: whitesmoke; border-width:thin; border-radius:6px; text-align: center; padding:5%; margin-top: 10px; background-color: whitesmoke;">
+                            <div>
+                                <p style="font-weight:600;">Vacation Day<br />Balance:</p> <p style="text-decoration:underline">@vacDays</p>
+                            </div>
+                            <hr />
+                            <div>
+                                <p style="font-weight:600;">Personal Day<br />Balance:</p> <p style="text-decoration:underline">@perDays</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>}
+
+    </div>
+</div>

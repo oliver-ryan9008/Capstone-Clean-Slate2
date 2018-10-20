@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Capston_Clean_Slate2.Models.Deduction>
+
+@{
+    ViewBag.Title = "ShowDeductions";
+}
+
+<h2>ShowDeductions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeductionDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeductiblePercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountDeducted)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeductionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeductiblePercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountDeducted)
+            </td>
+            <td></td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Add New Deduction", "AddEmployeeDeductions", new { @class = "btn btn-primary" })

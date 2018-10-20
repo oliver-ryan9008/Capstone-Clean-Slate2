@@ -1,0 +1,34 @@
+﻿<div class="row">
+    <div class="col-xs-9 col-xs-push-2">
+        <div class="box box-primary">
+            <div class="box-body no-padding">
+                <!-- THE CALENDAR -->
+                <div id="calendar"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+    </div><!-- /.col -->
+</div>
+<script>
+</script>
+
+@using (Html.BeginForm())
+{
+    <br /><br /><br /><br /><br /><br /><br />
+    <div>
+        <div>
+            Enter the First Day of Your Request:
+            <input type="date" name="Start"
+                   value="2018-01-01"
+                   min=@DateTime.Now.Date max="2018-12-31" />
+        </div>
+        <div>
+            Enter the Last Day of Your Request:
+            <input type="date" name="End"
+                   value="2018-01-01"
+                   min=@DateTime.Now.Date max="2018-12-31" />
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </div>
+}

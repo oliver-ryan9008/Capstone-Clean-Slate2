@@ -1,0 +1,63 @@
+﻿@model Capston_Clean_Slate2.Models.Pay
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaryRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HourlyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursWorked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursWorked)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OvertimeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OvertimeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialPay)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

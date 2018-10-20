@@ -1,0 +1,23 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "Employee Info";
+}
+<div style="padding: 1em;">
+    <section class="col-md-12">
+        <h2 style="border:solid; border-color: whitesmoke; border-width: thin; border-radius: 20px;color:whitesmoke; background-color: #008CBA; text-align: center; margin-bottom: 4px; width: 100% !important; font-weight: 500; text-decoration:underline">Welcome, @Model.FirstName @Model.LastName!</h2>
+    </section>
+</div>
+<div class="row" style="padding: 1em; justify-content:center">
+    <section class="col-md-6">
+        @Html.Partial("EmployeeHome")
+    </section>
+    <section class="col-md-6">
+        @Html.Partial("RequestDayOffPartial")
+    </section>
+</div>
+<div class="row" style="padding: 1em;">
+    <section class="col-md-12">
+        @Html.Partial("DisplayNetPay")
+    </section>    
+</div>

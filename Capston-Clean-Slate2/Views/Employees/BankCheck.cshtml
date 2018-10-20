@@ -1,0 +1,84 @@
+﻿@{ Layout = null; }
+@model Capston_Clean_Slate2.Models.Employee
+
+<style>
+    .Cheque, .Cheque * {
+        font-size: 16px;
+        font-family: times new roman;
+        font-style: initial;
+    }
+
+    .Cheque {
+        background-color: #ffffdd;
+        width: 30em;
+        height: 12em;
+        border: .2em solid blue;
+        margin: 1em;
+        padding: .5em;
+        color: black;
+    }
+
+    li {
+        margin-left: -1em;
+    }
+
+    ul {
+        margin-top: 0;
+    }
+
+    .Cheque hr {
+        margin: .65em;
+        padding: initial;
+    }
+
+    .Cheque pre {
+        display: initial;
+        margin: initial;
+        padding: initial;
+        line-height: initial;
+        border: initial;
+        background-color: initial;
+        border-radius: initial;
+        word-break: initial;
+        word-wrap: initial;
+        box-sizing: initial;
+    }
+</style>
+
+<div class="Cheque">
+    <div style="float:right;">
+        <span style="float:right">1001</span><hr style="visibility:hidden;margin-bottom:1em;">
+        <span style="font-size:.6em">Date &nbsp; </span><div style="height:1.2em;border-bottom:1px solid black;width:6em;font-size:.8em;float:right;">&nbsp;@DateTime.Now.Date.ToShortDateString()</div>
+    </div>
+<pre style="height:3em;width:50%;font-size:.7em;font-weight:bold;font-family:arial;overflow:hidden;" contenteditable="">@Model.FirstName @Model.LastName
+@Model.FullStreetAddress
+@Model.City, WI  @Model.ZipCode
+</pre>
+    <hr style="visibility:hidden;margin-bottom:.1em;">
+    <span style="font-size:.6em;float:left;">Pay to the<hr style="visibility:hidden;margin-bottom:-1.1em;">order of &nbsp; &nbsp; </span>
+    <div style="height:1.1em;width:19em;border-bottom:1px solid black;float:left;">&nbsp;&nbsp;&nbsp;@Model.FirstName @Model.LastName</div>
+    <div style="height:1.2em;border:1px solid black;width:5em;float:right;text-align:right;padding-right:.2em">@Model.WeeklyNetPay</div><span style="float:right">$&nbsp;</span>
+    <hr style="visibility:hidden;margin-bottom:1.5em;">
+    <div style="height:1.2em;width:29em;border-bottom:1px solid black;font-size:.8em;float:left;">&nbsp;&nbsp;@Model.CurrencyAsWords</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <hr style="visibility:hidden;margin-bottom:.5em;">
+    <span style="font-size:.6em;float:left;">Memo </span>
+    <div style="height:1.2em;border-bottom:1px solid black;width:10em;font-size:.8em;float:left;padding-left:.2em;"></div>
+    <div style="height:1.2em;border-bottom:1px solid black;width:14em;font-size:.8em;float:right;">x</div>
+    <hr style="visibility:hidden;margin-bottom:1.6em;">
+    <div align="center" style="height:15px;width:100%;float:right;font-size:.8em;border-bottom:1px solid black;">
+        |:&nbsp;&nbsp;
+        @Model.EmployeeRoutingNumber&nbsp;&nbsp;:|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|:&nbsp;&nbsp;
+        @Model.EmployeeBankAccountNumber&nbsp;&nbsp;:|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|:&nbsp;&nbsp;1001&nbsp;&nbsp;:|
+    </div>
+</div>
+
+<br /><br /><br /><br />
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

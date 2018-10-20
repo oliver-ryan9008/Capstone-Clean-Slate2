@@ -1,0 +1,165 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "My Information";
+}
+
+<h2>My Information</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table id="bootstrap-data-table" class="table table-striped table-bordered">
+    <thead>
+    <tr class="table-info">
+        @Html.HiddenFor(model => model.Id)
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        @*<th>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+                </th>*@
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.FullStreetAddress)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </th>
+        @*<th>
+                    @Html.DisplayNameFor(model => model.VacationDayBalance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonalDayBalance)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnexcusedDaysOff)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WeeklyRegularPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WeeklyBonusPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WeeklyCommissionSold)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsHourlyEmployee)
+                </th>*@
+        @*<th>
+                    @Html.DisplayNameFor(model => model.FederalIncomeTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StateIncomeTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SchoolDistrictTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CityIncomeTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnemploymentCompensation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeePayGarnishments)
+                </th>*@
+        @*<th>
+                    @Html.DisplayNameFor(model => model.OwnerContributedRetirement)
+                </th>*@
+        @*<th>
+                    @Html.DisplayNameFor(model => model.EmployeeHourlyPayRate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeSalaryPayRate)
+                </th>*@
+    </tr>
+    </thead>
+    <tbody>
+
+        <tr class="table-active">
+            <th scope="row">
+                @Html.DisplayFor(model => model.FirstName)
+            </th>
+            <th scope="row">
+                @Html.DisplayFor(model => model.LastName)
+            </th>
+            <th scope="row">
+                @Html.DisplayFor(model => model.Email)
+            </th>
+            @*<td>
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SocialSecurityNumber)
+                </td>*@
+            <th scope="row">
+                @Html.DisplayFor(model => model.FullStreetAddress)
+            </th>
+            <th scope="row">
+                @Html.DisplayFor(model => model.MailingAddress)
+            </th>
+            @*<td>
+                    @Html.DisplayFor(model => model.VacationDayBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PersonalDayBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UnexcusedDaysOff)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.WeeklyRegularPay)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.WeeklyBonusPay)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.WeeklyCommissionSold)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.IsHourlyEmployee)
+                </td>*@
+
+            @*<td>
+                    @Html.DisplayFor(model => model.FederalIncomeTax)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.StateIncomeTax)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SchoolDistrictTax)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CityIncomeTax)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UnemploymentCompensation)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmployeePayGarnishments)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.OwnerContributedRetirement)
+                </td>*@
+
+        @*<td>
+                    @Html.DisplayFor(model => model.EmployeeHourlyPayRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmployeeSalaryPayRate)
+
+           *@
+        </tr>
+    </tbody>
+        </table>
+        @Html.ActionLink("Edit My Information", "Edit", new { id = Model.Id })

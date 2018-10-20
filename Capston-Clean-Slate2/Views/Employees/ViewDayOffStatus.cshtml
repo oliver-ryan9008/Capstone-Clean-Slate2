@@ -1,0 +1,81 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "ViewDayOffStatus";
+}
+
+<h2>ViewDayOffStatus</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacationDayBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacationDayBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDayBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDayBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnexcusedDaysOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnexcusedDaysOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayRequestWasMade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayRequestWasMade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDatesToString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDatesToString)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DayOffRequestType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DayOffRequestType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approver)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

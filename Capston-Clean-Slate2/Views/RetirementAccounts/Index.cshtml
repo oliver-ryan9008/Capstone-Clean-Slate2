@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Capston_Clean_Slate2.Models.RetirementAccount>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalRetirementBalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeContribution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerContribution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatchUpAge)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalRetirementBalance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeContribution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerContribution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatchUpAge)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RetirementAccountNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RetirementAccountNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RetirementAccountNumber })
+        </td>
+    </tr>
+}
+</table>

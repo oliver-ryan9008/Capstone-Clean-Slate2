@@ -1,0 +1,214 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    @*<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-Qt9Hug5NfnQDGMoaQYXN1+PiQvda7poO7/5k4qAmMN6evu0oDFMJTyjqaoTGHdqf" crossorigin="anonymous">*@
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-MEq8xmFd953gp2FVvLd8DUEvfBjGCzDjem+gmDqfyyWcaxX4BUD7TtSu1EszNTvK" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {
+            padding-top: 75px !important;
+            background-color: #343a40;
+        }
+
+        div {
+            color: black;
+        }
+
+        .nav a {
+            font-weight:700 !important;
+        }
+
+        .dropdown-item {
+            font-size: 16px;
+            font-weight: 600 !important;
+        }
+
+        .iconClass {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary d-flex">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                <div class="navbar-collapse collapse container" id="navbarSupportedContent" style=" width: 2000px;">
+                    <a class="navbar-brand" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                        <img src="https://i.imgur.com/aLNXGt1.png" alt="PayEasy logo" height="35" />
+                    </a>
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+                            <a class="nav-link" href="~/Home/Index" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                                <span class="fas fa-home iconClass"></span><br />
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown" data-toggle="tooltip" data-delay='{"show":"2500", "hide":"200"}' data-placement="left" title="Payroll Options" data-type="info">
+                            <a class="nav-link dropdown-toggle fas fa-dollar-sign iconClass" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="~/Admins/GetEmployeeInformation">
+                                    <div><span class="far fa-clock"></span> Update Hours</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" data-toggle="tooltip" data-delay='{"show":"2500", "hide":"200"}' data-placement="left" title="Scheduling Options">
+                            <a class="nav-link dropdown-toggle far fa-calendar-alt iconClass" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="~/Employees/DisplayDayOffRequests">
+                                    <div><span class="far fa-calendar-alt"></span>&nbsp;&nbsp;Approve/Deny Day Off Requests</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown" data-toggle="tooltip" data-delay='{"show":"2500", "hide":"200"}' data-placement="left" title="Tax Options">
+                            <a class="nav-link dropdown-toggle fas fa-hand-holding-usd iconClass" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                @*<a class="dropdown-item" href="~/Admins/AddEmployeeDeductions">
+
+                                        <div><span class="far fa-newspaper"></span> Add Deductions</div>
+                                    </a>
+                                    <div class="dropdown-divider" style="border-color: #343a40"></div>*@
+                                <a class="dropdown-item" href="~/Taxes/Index">
+
+                                    <div><span class="fas fa-hand-holding-usd"></span> Adjust Tax Withholding</div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+
+    }
+    else if (User.IsInRole("Employee"))
+    {
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary d-flex">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>                <div class="navbar-collapse collapse container" id="navbarSupportedContent" style="max-height:50px">
+                    <a class="navbar-brand" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                        <img src="https://i.imgur.com/aLNXGt1.png" alt="PayEasy logo" height="35" />
+                    </a>
+
+                    <ul class="navbar-nav mr-auto">
+                        @*<li><a class="nav-link" href="~/Account/Register"> Register </a></li>*@
+                        @*<li>
+                                <a class="nav-link" href="~/Home/Index" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                                    <span class="fas fa-home iconClass"></span><br />
+                                </a>
+                            </li>*@
+                        <li>
+                            <a class="nav-link" href="~/Home/Index" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                                <span class="fas fa-home iconClass"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="~/Employees/DisplayNetPay" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Pay" data-type="info">
+                                <span class="fas fa-dollar-sign iconClass"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="~/Employees/RequestDayOff" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Request Day Off" data-type="info">
+                                <span class="far fa-calendar-times iconClass"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="~/Employees/Edit" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Edit My Information" data-type="info">
+                                <span class="fas fa-user-edit iconClass"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+
+    }
+    else
+    {
+
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary d-flex">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>                <div class="navbar-collapse collapse container" id="navbarSupportedContent" style="max-height:50px">
+                    <a class="navbar-brand" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                        <img src="https://i.imgur.com/aLNXGt1.png" alt="PayEasy logo" height="45" />
+                    </a>
+
+                    <ul class="navbar-nav mr-auto">
+                        @*<li>
+                                <a class="nav-link" href="~/Home/Index" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Home" data-type="info">
+                                    <span class="iconClass">Welcome! Please log in or register!</span>
+                                </a>
+                            </li>*@
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <br /><br /><br /><br /><br /><br /><br /><br /><hr />
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - Ryan Oliver.</p>
+            </footer>*@
+        <footer>
+            <div class="container">
+                <div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="logo">
+                        <img src="~/Content/landing/img/elements/easyPayHorizontal.png" alt="" height="50" style="margin-right:-50px">
+                    </div>
+                    <div class="copy-right-text">Copyright &copy; 2018  |  All rights reserved to Ryan Oliver, Developer</div>
+                    <div>
+                        <a target="_blank" title="Facebook" href="https://www.facebook.com/ryanoliverdevelopment"><img alt="follow me on facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook40x40.png" border=0></a>&nbsp;
+                        <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/developerryanoliver"><img alt="linkedin" src="~/Content/landing/img/elements/linkedin.png" border="0" height="40" /></a>&nbsp;
+                        <a target="_blank" title="Github" href="https://github.com/oliver-ryan9008"><img alt="check out my github" src="~/Content/landing/img/elements/GitHub-Mark-64px.png" border="0" height="40" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <br /><br /><br />
+    </div>
+</body>
+
+</html>
+<footer>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/1.9.0/jquery.hoverIntent.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'hover'
+            });
+        });
+        var handleHover = function () {
+            $(this).parent().toggleClass("show");
+            $(this).parent().find(".dropdown-menu").toggleClass("show");
+        }
+        $(".navbar .dropdown-toggle").hoverIntent({
+            over: handleHover,
+            out: handleHover,
+            sensitivity: 3,
+            interval: 600
+        });
+    </script>
+</footer>

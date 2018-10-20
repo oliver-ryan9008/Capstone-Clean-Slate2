@@ -1,0 +1,31 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "View Employee Hours Worked";
+}
+
+<h2>View Employee Hours Worked"</h2>
+
+<div>
+    <h4>@Model.FirstName @Model.LastName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursWorked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursWorked)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemsSold)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItemsSold)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "GetEmployeeInformation")
+    @Html.ActionLink("Edit Employee's Hours", "GetEmployeeWeeklyHours")
+</p>

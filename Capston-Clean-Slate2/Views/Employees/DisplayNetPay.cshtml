@@ -1,0 +1,122 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "DisplayNetPay";
+}
+
+@Html.HiddenFor(model => model.Id)
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    
+    <div class="card text-white bg-info mb-3" style="width:100%; border-radius: 20px; border-color: #f8f9fa; white-space: nowrap;">
+
+        <div class="card-header navbar navbar-collapse bg-primary" style="border-radius: 20px 20px 0px 0px; border-bottom-color: #f8f9fa; border-bottom-width:thin; padding-right: 5px; width:100%; white-space: nowrap;">
+            <div class="text-white col-md-2" style="font-size: 1.4em; font-weight:700; border-right: solid; border-right-color: whitesmoke; border-right-width: thin;">
+                Options:
+            </div>
+            <div class="col-md-8" style="white-space: nowrap; text-align: center; justify-content: center;">
+                <div class="btn btn-primary" style="border-color: #008CBA; border-radius: 15px; display:inline-block;">
+                    <a class="nav-link" href="~/Employees/SeeCheck/@Model.Id" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Schedule Request" data-type="info" style="padding-left: 10px !important; padding-right: 10px !important; margin-right:2em !important; margin-left: 2em !important;">
+                        <div class="text-white" style="text-align: center;">View Pay Stub</div>
+                    </a>
+                </div>
+                <div class="btn btn-primary" style="border-color: #008CBA; border-radius: 15px; display:inline-block;">
+                    <a class="nav-link" href="~/Employees/BankCheck/@Model.Id" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Edit My Profile" data-type="info" style="padding-left: 15px !important; padding-right: 15px !important; margin-right:2em !important; margin-left: 2em !important">
+                        <div class="text-white" style="text-align: center;">Print Check</div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row col-md-12">
+            <div style="width: 50%; text-align: center; color: black !important;">
+                <dl class="card-body">     
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.WeeklyRegularPay)
+                    </dt>
+
+                    <dd>
+                        $@Html.DisplayFor(model => model.WeeklyRegularPay)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EmployeeCommissionBonus)
+                    </dt>
+
+                    <dd>
+                        $@Html.DisplayFor(model => model.EmployeeCommissionBonus)
+                    </dd>
+                    <dt>
+                        Total @Html.DisplayNameFor(model => model.WeeklyBonusPay)
+                    </dt>
+
+                    <dd>
+                        $@Html.DisplayFor(model => model.WeeklyBonusPay)
+                    </dd>
+                </dl>
+            </div>
+            <div style="width:50%; text-align: center; color: black !important;">
+                <dl class="card-body">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FederalIncomeTax)
+                    </dt>
+
+                    <dd>
+                        $@Html.DisplayFor(model => model.FederalIncomeTax)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StateIncomeTax)
+                    </dt>
+
+                    <dd>
+                        $@Html.DisplayFor(model => model.StateIncomeTax)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CityIncomeTax)
+                    </dt>
+                    <dd>
+                        $@Html.DisplayFor(model => model.CityIncomeTax)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SchoolDistrictTax)
+                    </dt>
+                    <dd>
+                        $@Html.DisplayFor(model => model.SchoolDistrictTax)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UnemploymentCompensation)
+                    </dt>
+                    <dd>
+                        $@Html.DisplayFor(model => model.UnemploymentCompensation)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EmployeePayGarnishments)
+                    </dt>
+                    <dd>
+                        $@Html.DisplayFor(model => model.EmployeePayGarnishments)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="row">
+            <div style="width:35%"></div>
+            <div style="width:30%; height: 10%; border:solid; border-color: whitesmoke; border-width: thin; border-radius: 8px; margin-bottom:1em;">
+                <dl class="card-body" style="text-align:center; color: black !important;">
+                    <dt style="font-weight: 700; font-size:1.3em; text-decoration: underline overline; margin-top: .5em;">
+                        @Html.DisplayNameFor(model => model.WeeklyNetPay)
+                    </dt>
+                    <dd style="font-size: 1.3em; margin-bottom: -.5em">
+                        $@Html.DisplayFor(model => model.WeeklyNetPay)
+                    </dd>
+                </dl>
+            </div>
+            <div style="width:35%"></div>
+        </div>
+
+    </div>
+</div>
+    <br /><br /><br /><br />

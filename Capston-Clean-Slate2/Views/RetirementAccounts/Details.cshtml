@@ -1,0 +1,49 @@
+﻿@model Capston_Clean_Slate2.Models.RetirementAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RetirementAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalRetirementBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalRetirementBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeContribution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeContribution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerContribution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerContribution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatchUpAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatchUpAge)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RetirementAccountNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

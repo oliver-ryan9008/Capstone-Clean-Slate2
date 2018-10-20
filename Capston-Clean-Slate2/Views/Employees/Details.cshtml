@@ -1,0 +1,249 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialSecurityNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialSecurityNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullStreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullStreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MailingAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MailingAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacationDayBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacationDayBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalDayBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalDayBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnexcusedDaysOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnexcusedDaysOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyRegularPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyRegularPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyBonusPay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyBonusPay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyCommissionSold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyCommissionSold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsHourlyEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsHourlyEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxMaritalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxMaritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FederalIncomeTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FederalIncomeTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateIncomeTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateIncomeTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolDistrictTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolDistrictTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityIncomeTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityIncomeTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnemploymentCompensation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnemploymentCompensation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeePayGarnishments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeePayGarnishments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerContributedRetirement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerContributedRetirement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeContributedRetirement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeContributedRetirement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeHourlyPayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeHourlyPayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeSalaryPayRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeSalaryPayRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectDeposit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectDeposit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeBankAccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeBankAccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeRoutingNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeRoutingNumber)
+        </dd>
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

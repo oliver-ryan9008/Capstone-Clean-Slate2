@@ -1,0 +1,11 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+@{
+    ViewBag.Title = "DisplayApprovalToEmployee";
+}
+
+<h2>Approval Status: </h2>
+
+@Html.ViewBag.status
+
+@Html.ActionLink("Back to Home", "Index", "Employees")

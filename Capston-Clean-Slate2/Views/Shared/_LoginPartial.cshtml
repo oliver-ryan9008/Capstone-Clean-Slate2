@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNet.Identity
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - EasyPay</title>
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+
+    <style type="text/css">
+        body {
+            padding-top: 75px !important;
+        }
+    </style>
+</head>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav-link " }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="top" title="Current User" data-type="info" style="font: bold">
+                @Html.ActionLink("Welcome, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+            </li>
+            <li data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="top" title="Log Off" data-type="info"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="top" title="Register" data-type="info">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+        <li data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="top" title="Login" data-type="info">@Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+    </ul>
+}

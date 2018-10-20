@@ -1,0 +1,713 @@
+﻿@{ Layout = null; }
+@model Capston_Clean_Slate2.Models.Employee
+@{ string todayDate = DateTime.Now.ToShortDateString(); }
+@{System.Globalization.DateTimeFormatInfo mfi = new System.Globalization.DateTimeFormatInfo();
+    string monthName = mfi.GetMonthName(DateTime.Now.Month).ToString();
+}
+@{ string beginningPayPeriod = DateTime.Now.Date.AddDays(-15).ToShortDateString(); }
+@{ string endPayPeriod = DateTime.Now.Date.AddDays(-1).ToShortDateString(); }
+@{ string employeeType;
+    if (Model.IsHourlyEmployee)
+    {
+        employeeType = "Hourly";
+    }
+    else
+    {
+        employeeType = "Salary";
+    }
+}
+@{ var year = DateTime.Now.Year; }
+@{ var firstOfYear = new DateTime(year, 1, 1); }
+@{ var weeksSinceFirstOfYear = DateTime.Now.DayOfYear / 7;}
+@{ var grossPaySoFarRoughEstimate = Model.WeeklyRegularPay * weeksSinceFirstOfYear;}
+<style>
+    tbody tr:nth-child(odd) {
+        background: #eee;
+    }
+</style>
+
+<html>
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+    <meta name=Generator content="Microsoft Word 15 (filtered)">
+</head>
+
+<body lang=EN-US>
+
+    <div class=WordSection1>
+
+        <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+               style='border-collapse:collapse; width: 800pt'>
+            <thead>
+                <tr style='height:16.0pt'>
+                    <td width=340 colspan=6 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:16.0pt'>
+                        <p class=MsoNormal style='margin-left:-2.85pt;line-height:12.0pt'>
+                            <span lang=EN-GB style='font-family:"Arial",sans-serif'>&nbsp;</span>
+                        </p>
+                    </td>
+                    <td width=340 colspan=3 valign=top style='width:255.15pt;background:#F2F2F2;
+  padding:0in 5.35pt 0in 5.35pt;height:16.0pt'>
+                        <p class=MsoNormal align="center" style='margin-left:-2.85pt;line-height:17.0pt;background:
+#eee'>
+                            <b>
+                                <span lang=EN-GB style='font-size:12.0pt;font-family:"Arial",sans-serif'>
+                                    @Model.FirstName @Model.LastName<br />
+                                    Pay for Dates of <br />
+                                    @beginningPayPeriod - @endPayPeriod
+                                </span>
+                            </b>
+                        </p>
+                    </td>
+                    <td width=340 colspan=6 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:16.0pt'>
+                        <p class=MsoNormal style='margin-left:-2.85pt;line-height:12.0pt'>
+                            <span lang=EN-GB style='font-family:"Arial",sans-serif'>&nbsp;</span>
+                        </p>
+                    </td>
+                </tr>
+                <tr style='height:20.0pt'>
+                    <td width=340 colspan=7 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:20.0pt'>
+                        <p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+                            <span lang=EN-GB style='font-family:"Arial",sans-serif'>&nbsp;</span>
+                        </p>
+                    </td>
+                    <td width=340 colspan=8 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:20.0pt'>
+                        <p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+                            <b>
+                                <span lang=EN-GB style='font-family:"Arial",sans-serif'>&nbsp;</span>
+                            </b>
+                        </p>
+                    </td>
+                    <td style='border:none;padding:0in 0in 0in 0in' width=0><p class='MsoNormal'>&nbsp;</td>
+                </tr>
+                <tr style='height:.25in'>
+                    <td width=340 colspan=7 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:.25in'>
+                        <p class=MsoNormal style='margin-top:4.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+                            <b>
+                                <span lang=EN-GB style='font-family:"Arial",sans-serif'>&nbsp;</span>
+                            </b>
+                        </p>
+                    </td>
+                    <td width=340 colspan=8 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:.25in'>
+                        <p class=MsoNormal style='margin-top:4.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+                            <b>
+                                <span lang=EN-GB style='font-family:"Arial",sans-serif'></span>
+                            </b>
+                        </p>
+                    </td>
+                    <td style='border:none;padding:0in 0in 0in 0in' width=0><p class='MsoNormal'></td>
+                </tr>
+
+                <tr style='height:10.0pt'>
+                    <td width=340 colspan=6 valign=top style='width:255.15pt;padding:0in 5.35pt 0in 5.35pt;
+  height:10.0pt;'>
+                        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>&nbsp;</span>
+                        </p>
+                    </td>
+                    <td width=83 colspan=4 valign=top style='width:62.05pt;border:solid windowtext 1.0pt;
+  border-bottom:none;padding:0in 5.35pt 0in 5.35pt;height:10.0pt;background: #eee;'>
+                        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Year</span>
+                        </p>
+                    </td>
+                    <td width=257 colspan=5 valign=top style='width:192.95pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt;background: #eee;'>
+                        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Month</span>
+                        </p>
+                    </td>
+                </tr>
+                <tr style='height:14.0pt'>
+                    <td width=340 colspan=6 valign=top style='width:255.15pt;border:none;
+  border-bottom:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;
+  height:14.0pt'>
+                        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+                            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>&nbsp;</span>
+                        </p>
+                    </td>
+                    <td width=83 colspan=4 valign=top style='width:62.05pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+                        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@DateTime.Now.Year.ToString()</span></p>
+</td>
+<td width=257 colspan=5 valign=top style='width:192.95pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@monthName</span></p>
+</td>
+</tr>
+</thead>
+<tbody style="width:510pt;">
+    <tr style='height:10.0pt'>
+        <td width=340 colspan=6 valign=top style='width:255.15pt;border:none;
+  border-left:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+            <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Name</span>
+            </p>
+        </td>
+        <td width=169 colspan=6 valign=top style='width:126.4pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+            <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                    Social
+                    security number
+                </span>
+            </p>
+        </td>
+        <td width=172 colspan=3 valign=top style='width:128.7pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+            <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+                <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                    Telephone
+                    number
+                </span>
+            </p>
+        </td>
+    </tr>
+    <tr style='height:14.0pt'>
+        <td width=340 colspan=6 valign=top style='width:255.15pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+            <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name=Text1></a>@Model.FirstName @Model.LastName</span></p>
+</td>
+<td width=169 colspan=6 valign=top style='width:126.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.SocialSecurityNumber</span></p>
+</td>
+<td width=172 colspan=3 valign=top style='width:128.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>N/A</span></p>
+</td>
+</tr>
+<tr style='height:10.0pt'>
+    <td width=340 colspan=6 valign=top style='width:255.15pt;border:none;
+  border-left:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Address</span>
+        </p>
+    </td>
+    <td width=83 colspan=4 valign=top style='width:62.05pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Post code</span>
+        </p>
+    </td>
+    <td width=257 colspan=5 valign=top style='width:192.95pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Town</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=340 colspan=6 valign=top style='width:255.15pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.FullStreetAddress</span></p>
+</td>
+<td width=83 colspan=4 valign=top style='width:62.05pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.ZipCode</span></p>
+</td>
+<td width=257 colspan=5 valign=top style='width:192.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.City</span></p>
+</td>
+</tr>
+<tr style='height:10.0pt'>
+    <td width=340 colspan=6 valign=top style='width:255.15pt;border:none;
+  border-left:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Company</span>
+        </p>
+    </td>
+    <td width=169 colspan=6 valign=top style='width:126.4pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Bank Account Number
+            </span>
+        </p>
+    </td>
+    <td width=172 colspan=3 valign=top style='width:128.7pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Date</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=340 colspan=6 valign=top style='width:255.15pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>FCLB Inc.</span>
+        </p>
+    </td>
+    <td width=169 colspan=6 valign=top style='width:126.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.EmployeeBankAccountNumber</span></p>
+</td>
+<td width=172 colspan=3 valign=top style='width:128.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@todayDate</span></p>
+</td>
+</tr>
+<tr style='height:10.0pt'>
+    <td width=255 colspan=3 valign=top style='width:191.35pt;border:none;
+  border-left:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Salary
+                period
+            </span>
+        </p>
+    </td>
+    <td width=85 colspan=3 valign=top style='width:63.8pt;border:none;border-left:
+  solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Employee Type</span>
+        </p>
+    </td>
+    <td width=169 colspan=6 valign=top style='width:126.45pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Routing Number</span>
+        </p>
+    </td>
+    <td width=172 colspan=3 valign=top style='width:128.75pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Date of
+                payment
+            </span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=255 colspan=3 valign=top style='width:191.35pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@beginningPayPeriod&nbsp;-&nbsp;</span></p>
+<p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'>
+    <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@endPayPeriod</span>
+</p>
+</td>
+<td width=85 colspan=3 valign=top style='width:63.8pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@employeeType</span></p>
+</td>
+<td width=169 colspan=6 valign=top style='width:126.45pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.EmployeeRoutingNumber</span></p>
+</td>
+<td width=172 colspan=3 valign=top style='width:128.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@todayDate</span></p>
+</td>
+</tr>
+
+<tr style='height:10.0pt; border:none;border-top:solid windowtext 1.0pt; width:800px'>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Paid Vacation Hours
+            </span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Yearly Gross Pay
+            </span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Federal Income Tax</span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Federal Unemployment Insurance
+            </span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Weekly Gross Pay
+            </span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=135 colspan=3 valign=top style='width:20%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(string.Format("${0:0.00}", grossPaySoFarRoughEstimate))</span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(string.Format("${0:0.00}", Model.FederalIncomeTax))</span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name="Sum_17"></a>@(string.Format("${0:0.00}", Model.UnemploymentCompensation))</span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name="Sum_13"></a>@(string.Format("${0:0.00}", Model.WeeklyRegularPay))</span></p>
+</td>
+</tr>
+<tr style='height:10.0pt;'>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Paid Personal Day Hours
+            </span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Yearly Bonus</span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                State Income Tax
+            </span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                School District Tax
+            </span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Weekly Bonus Pay
+            </span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=135 colspan=3 valign=top style='width:20%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'></span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>----</span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(string.Format("${0:0.00}", Model.StateIncomeTax))</span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name="Sum_16"></a>@(string.Format("${0:0.00}", Model.SchoolDistrictTax))</span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name="Sum_14"></a>@(string.Format("${0:0.00}", Model.WeeklyBonusPay))</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:10.0pt'>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Weekly Hours Worked
+            </span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Yearly Net Pay
+            </span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>City Income Tax</span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Pre-Tax Retirement Percentage Deducted
+            </span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Weekly Net Pay</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=135 colspan=3 valign=top style='width:20%;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.HoursWorked</span>
+        </p>
+    </td>
+
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>----</span>
+        </p>
+    </td>
+    <td width=136 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(string.Format("${0:0.00}", Model.CityIncomeTax))</span>
+        </p>
+    </td>
+    <td width=135 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@Model.EmployeeContributedRetirement %</span>
+        </p>
+    </td>
+    <td width=138 colspan=3 valign=top style='width:20%;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align=right style='margin-top:1.0pt;margin-right:0in;
+  margin-bottom:0in;margin-left:-2.85pt;margin-bottom:.0001pt;text-align:right;
+  line-height:12.0pt'>
+            <span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'><a name="Sum_15"></a>$@Model.WeeklyNetPay</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:10.0pt'>
+    <td width=170 colspan=3 valign=top style='width:127.5pt;border-top:none;
+  border-left:solid windowtext 1.0pt;border-bottom:none;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Vacation Hours Remaining
+            </span>
+        </p>
+    </td>
+    <td width=170 colspan=3 valign=top style='width:127.5pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>
+                Personal Days Remaining
+            </span>
+        </p>
+    </td>
+    <td width=168 colspan=3 valign=top style='width:126.35pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>Retirement Account Balance</span>
+        </p>
+    </td>
+    <td width=172 colspan=6 valign=top style='width:128.65pt;border:none;
+  border-right:solid windowtext 1.0pt;padding:0in 5.35pt 0in 5.35pt;height:
+  10.0pt'>
+        <p class=MsoNormal style='margin-left:-2.85pt;line-height:9.0pt'>
+            <span lang=EN-GB style='font-size:7.0pt;font-family:"Arial",sans-serif'>For questions or concerns:</span>
+        </p>
+    </td>
+</tr>
+<tr style='height:14.0pt'>
+    <td width=170 colspan=3 valign=top style='width:127.5pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+        <p class=MsoNormal align="right" style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(Model.VacationDayBalance * 8)</span></p>
+</td>
+<td width=170 colspan=3 valign=top style='width:127.5pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal align="right" style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>@(Model.PersonalDayBalance * 8)</span></p>
+</td>
+<td width=168 colspan=3 valign=top style='width:126.35pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>$@Model.RetirementAccountBalance</span></p>
+</td>
+<td width=172 colspan=6 valign=top style='width:128.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0in 5.35pt 0in 5.35pt;height:14.0pt'>
+    <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:
+  0in;margin-left:-2.85pt;margin-bottom:.0001pt;line-height:12.0pt'><span lang=EN-GB style='font-size:11.0pt;font-family:"Courier New"'>oliver.ryan9008@gmail.com <br />(262) 470-1514 </span></p>
+</td>
+</tr>
+<tr height=0>
+    <td width=75 style='border:none'></td>
+    <td width=53 style='border:none'></td>
+    <td width=33 style='border:none'></td>
+    <td width=75 style='border:none'></td>
+    <td width=21 style='border:none'></td>
+    <td width=44 style='border:none'></td>
+    <td width=25 style='border:none'></td>
+    <td width=74 style='border:none'></td>
+    <td width=11 style='border:none'></td>
+    <td width=4 style='border:none'></td>
+    <td width=102 style='border:none'></td>
+    <td width=16 style='border:none'></td>
+    <td width=22 style='border:none'></td>
+    <td width=58 style='border:none'></td>
+    <td width=93 style='border:none'></td>
+    <td width=1 style='border:none'></td>
+</tr>
+</tbody>
+</table>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+</div>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

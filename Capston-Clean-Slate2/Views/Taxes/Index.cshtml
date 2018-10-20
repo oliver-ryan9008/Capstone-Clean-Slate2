@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Capston_Clean_Slate2.Models.Tax>
+
+@{
+    ViewBag.Title = "Tax Info";
+}
+
+<style>
+    .buttonAdjust{
+        font-size: .9em !important;
+    }
+</style>
+<h2>Employee Tax Information</h2>
+
+@Html.ActionLink("Add New Employee Tax Information", "Create", new { }, new { @class = "btn btn-success"})
+<br /><br />
+
+<table id="bootstrap-data-table" class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FederalIncomeRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateIncomeRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SchoolDistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityIncomeRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnemploymentCompensation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Garnishment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FederalIncomeRate)%
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateIncomeRate)%
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SchoolDistrict)%
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityIncomeRate)%
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnemploymentCompensation)%
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.Garnishment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Create", new { }, new { @class = "btn btn-warning buttonAdjust" })
+        </td>
+    </tr>
+}
+</table>

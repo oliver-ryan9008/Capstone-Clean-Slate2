@@ -1,0 +1,89 @@
+﻿@model Capston_Clean_Slate2.Models.Tax
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FederalIncomeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FederalIncomeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateIncomeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateIncomeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchoolDistrict)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchoolDistrict)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityIncomeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityIncomeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnemploymentCompensation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnemploymentCompensation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Garnishment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Garnishment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GarnishmentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GarnishmentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeductionStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeductionStatus)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaxId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
