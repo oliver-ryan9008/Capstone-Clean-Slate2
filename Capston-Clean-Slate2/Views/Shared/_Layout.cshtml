@@ -5,24 +5,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*@Styles.Render("~/Content/css")*@
+    @Styles.Render("~/Content/css")
     @*@Scripts.Render("~/bundles/modernizr")*@
+    <link href="https://fonts.googleapis.com/css?family=Slabo+13px" rel="stylesheet">
     @*<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-Qt9Hug5NfnQDGMoaQYXN1+PiQvda7poO7/5k4qAmMN6evu0oDFMJTyjqaoTGHdqf" crossorigin="anonymous">*@
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-MEq8xmFd953gp2FVvLd8DUEvfBjGCzDjem+gmDqfyyWcaxX4BUD7TtSu1EszNTvK" crossorigin="anonymous">
+    @*<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-MEq8xmFd953gp2FVvLd8DUEvfBjGCzDjem+gmDqfyyWcaxX4BUD7TtSu1EszNTvK" crossorigin="anonymous">*@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+
 
     <style type="text/css">
         body {
             padding-top: 75px !important;
-            background-color: #343a40;
         }
 
-        div {
+        /*div {
             color: black;
-        }
+        }*/
 
         .nav a {
-            font-weight:700 !important;
+            font-weight: 700 !important;
         }
 
         .dropdown-item {
@@ -32,6 +34,30 @@
 
         .iconClass {
             font-size: large;
+        }
+
+        .card-font-bold {
+            font-weight: 700 !important;
+            font-size: 1.2rem;
+        }
+
+        .card-font-black {
+            color: black !important;
+            font-size: 1.3rem;
+        }
+
+        .text-hoverable {
+            transition-delay: 200ms;
+            transition-duration: 350ms;
+        }
+
+        .text-hoverable:hover {
+            transform: scale(1.1) !important;
+            font-weight: bolder;
+            color: #D6A134;
+            margin-left: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
     </style>
 </head>
@@ -187,13 +213,15 @@
 
 </html>
 <footer>
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
+    @*@Scripts.Render("~/bundles/jquery")*@
+        @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    @*<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.hoverintent/1.9.0/jquery.hoverIntent.js"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip({

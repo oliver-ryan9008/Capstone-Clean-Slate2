@@ -2219,6 +2219,7 @@
     <Content Include="Views\Admins\ChooseDeductions.cshtml" />
     <Content Include="Views\Employees\EmployeeInfoPartial.cshtml" />
     <Content Include="Views\Employees\HomeWithPartials.cshtml" />
+    <Content Include="Views\Employees\_RequestDays.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

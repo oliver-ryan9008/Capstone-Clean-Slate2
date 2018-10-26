@@ -1,10 +1,10 @@
 ﻿@model Capston_Clean_Slate2.Models.Employee
 
-<div class="col-lg-12 col-md-12 col-sm-12">
-    <div class="card text-white bg-info mb-3" style="width: 100%; height:inherit; border-radius: 20px; border-color: #f8f9fa; white-space: nowrap;">
-        <div class="card-header navbar navbar-collapse bg-primary" style="border-radius: 20px 20px 0px 0px; border-bottom-color: #f8f9fa; border-bottom-width:thin; padding-right: 5px;">
-            <div class="row" style="white-space: nowrap">
-                <div class="text-white" style="font-size: 1.2em; font-weight:700; padding-left: 15px; padding-right: 15px; border-right: solid; border-right-color: whitesmoke; border-right-width: thin; padding-top: 14px; padding-bottom: 10px;">
+<div class="col-lg-6 col-md-6 col-sm-6 mx-auto" style="height: 100%; margin-top: 2rem;">
+    <div class="card text-white" style="width: 100%; white-space: nowrap; background-color: rgba(173, 235, 185, .6); height:100%;">
+        <div class="card-header navbar navbar-collapse bg-secondary" style="width:100%; max-height: 4rem !important;">
+            <div class="row" style="white-space: nowrap;">
+                <div class="text-white navbar-brand" style=" padding-right: 1.5rem; padding-left: 1rem;">
                     Request Days Off
                 </div>
             </div>
@@ -30,33 +30,57 @@
 
 
 
-            <div class="card-body" style="justify-content: center;">
-                <div class="row" style="padding-top: 8%; padding-bottom: 9.5%">
-                    <div class="col-6" style="justify-content:center;">
-                        Enter Start of Time Off
-                        <div>
-                            <input type="date" name="start"
-                                   value=@todayString
-                                   min=@todayString max="12-31-2019" />
-                        </div>
-                        Enter End of Time Off
-                        <div>
-                            <input type="date" name="end"
-                                   value=@tomorrowString
-                                   min=@tomorrowString max="12-31-2019" />
-                        </div>
-                        <p style="margin-top:1em;">Request type:</p>
-                        <div>
-                            <input type="radio" name="request" value="vacation"> Vacation Day <br>
-                            <input type="radio" name="request" value="personal"> Personal Day <br>
-                        </div>
-                        <br />
-                        <div>
-                            <input type="submit" value="Submit for Review" class="btn btn-success" />
-                        </div>
+            <div class="card-body text-secondary text-center" id="card-body" style="justify-content: center;">
+                <div class="row mx-auto text-center">
+                    <div class="form-group" style="justify-content:center;">
+                        <form>
+                            <fieldset>
+                                <div style="font-weight: 700;">Enter Start of Time Off</div>
+                                <div>
+                                    @*<div class="input-group mb-3" style="width: 12rem;">
+                                        <input type="date" name="start" value=@todayString min=@todayString max="12-31-2019" class="form-control" style="background-color: #A9D6E9;">
+                                    </div>*@
+                                    <input type="date" name="start"
+                                        value=@todayString
+                                        min=@todayString max="12-31-2019" />
+                                </div>
+                                <div style="font-weight: 700;">Enter End of Time Off</div>
+                                <div>
+                                    @*<div class="input-group mb-3" style="width: 12rem;">
+                                        <input class="form-control" type="date" name="end"
+                                               value=@tomorrowString
+                                               min=@tomorrowString max="12-31-2019" style="background-color: #A9D6E9;" />
+                                    </div>*@
+                                    <input type="date" name="end"
+                                        value=@tomorrowString
+                                        min=@tomorrowString max="12-31-2019" />
+                                </div>
+                                <p style="margin-top:1em; font-weight: 700;">Request type:</p>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio1" name="request" class="custom-control-input" checked="" value="vacation">
+                                    <label class="custom-control-label" for="customRadio1">Vacation Day</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="request" class="custom-control-input" value="personal">
+                                    <label class="custom-control-label" for="customRadio2">Personal Day</label>
+                                </div>
+                                @*</div>*@
+                                @*<div>
+                                        <input type="radio" name="request" value="vacation"><a style="font-weight: 700;">Vacation Day</a><br />
+                                        <input type="radio" name="request" value="personal"><a style="font-weight: 700;">Personal Day</a>
+                                    </div>*@
+                                <br />
+                                <div>
+                                    <input type="submit" value="Submit for Review" class="btn btn-success" />
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
+                </div>
+                
+                @*<div class="row">
                     <div class="col-6" style="justify-content:center; color: black !important;">
-                        <div style="border: solid; border-color: whitesmoke; border-width:thin; border-radius:6px; text-align: center; padding:5%; margin-top: 10px; background-color: whitesmoke;">
+                        <div style="border: solid; border-color: whitesmoke; border-width:thin; border-radius:6px; text-align: center;  margin-top: 10px; background-color: whitesmoke;">
                             <div>
                                 <p style="font-weight:600;">Vacation Day<br />Balance:</p> <p style="text-decoration:underline">@vacDays</p>
                             </div>
@@ -66,8 +90,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>}
-
+                </div>*@             
+            </div>
+        }
+        </div>
     </div>
-</div>

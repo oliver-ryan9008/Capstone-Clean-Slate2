@@ -457,6 +457,14 @@ namespace Capston_Clean_Slate2.Controllers
         }
 
         [Authorize(Roles = "Employee")]
+        public ActionResult _RequestDays()
+        {
+            var employeeId = User.Identity.GetUserId();
+            var employee = (from e in db.Employees where e.Id == employeeId select e).First();
+            return PartialView();
+        }
+
+        [Authorize(Roles = "Employee")]
         public ActionResult RequestDayOff()
         {
             var employeeId = User.Identity.GetUserId();

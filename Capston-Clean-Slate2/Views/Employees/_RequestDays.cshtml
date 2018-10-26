@@ -1,0 +1,71 @@
+﻿@model Capston_Clean_Slate2.Models.Employee
+
+<style>
+    .btn-bordered {
+        border: solid;
+        border-width: thin;
+        border-radius: 8px;
+        border-color: #1591C2;
+    }
+
+        .btn-bordered:hover, btn-bordered:focus {
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+            transition-delay: 100ms;
+            margin-bottom: .3rem;
+            margin-top: -.5rem;
+            border-width: medium;
+            transform: scale(1.1);
+            z-index: 1;
+            position: relative;
+        }
+</style>
+
+@{
+    string vacDays = "N/A";
+    string perDays = "N/A";
+    DateTime todayVal = DateTime.Now.Date;
+    DateTime tomorrowVal = todayVal.AddDays(1);
+    string tomorrowString = tomorrowVal.ToString("yyyy-MM-dd");
+    string todayString = DateTime.Now.Date.ToString("yyyy-MM-dd");
+    if (Model != null)
+    {
+        if (Model.HasBeenAssignedVacationPersonalDays)
+        {
+            vacDays = Model.VacationDayBalance.ToString();
+            perDays = Model.PersonalDayBalance.ToString();
+        }
+    }
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card text-white mb-3" style="white-space: nowrap; background-color: rgba(173, 235, 185, .6); height: 100%;width:100%">
+            <div class="card-header navbar navbar-collapse bg-secondary" style="max-height: 4rem !important; width:100%">
+                <div class="row" style="white-space: nowrap;">
+                    <div class="text-white navbar-brand" style=" border-right: solid; border-right-color: whitesmoke; border-right-width: thin; padding-right: 1.5rem; padding-left: 1rem;">
+                        Request Dates Off
+                    </div>
+                    <div class="btn btn-outline-info" style="margin-left: 1rem; margin-top: 0px !important; margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+                        <a class="nav-link" href="~/Employees/RequestDayOff/@Model.Id" data-toggle="tooltip" data-delay='{"show":"1500", "hide":"200"}' data-placement="bottom" title="Edit My Profile" data-type="info" style="margin-left: 5px;">
+                            <div class="text-white" style="text-align: center;">Enter Request</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" height="100%">
+                <div class="col-12 mx-auto text-center text-secondary">
+                    <div class="card-body" style="border: solid; border-color: #1591C2; border-width:thin; border-radius:6px; text-align: center;  margin-top: 4rem; margin-bottom: 4rem; background-color: #e9edf0;" height="100%">
+                        <div style="border-bottom: solid; border-bottom-color: #294C70; border-width: thin;">
+                            <p style="font-weight:600;">Your Vacation<br />Balance:</p> <p>You have <a style="text-decoration:underline">@vacDays</a> days remaining</p>
+                        </div>
+
+                        <div style="padding-top: 1rem;">
+                            <p style="font-weight:600;">Your Personal<br />Balance:</p> <p>You have <a style="text-decoration:underline">@perDays</a> days remaining</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

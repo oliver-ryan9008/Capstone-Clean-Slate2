@@ -12,7 +12,7 @@ namespace Capston_Clean_Slate2.Controllers
             }
             if (User.IsInRole("Employee"))
             {
-                return RedirectToAction("EmployeeHome", "Employees");
+                return RedirectToAction("HomeWithPartials", "Employees");
             }
 
             return View();
